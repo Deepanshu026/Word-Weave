@@ -9,11 +9,7 @@ function Header() {
   const navigate = useNavigate();
 
   const navItems = [
-    {
-      name: "Home",
-      slug: "/",
-      active: true,
-    },
+    
     {
       name: "Login",
       slug: "/login",
