@@ -4,7 +4,6 @@ import { Button, Input, RTE, Select } from "..";
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 export default function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } =
     useForm({
@@ -15,10 +14,8 @@ export default function PostForm({ post }) {
         status: post?.status || "active",
       },
     });
-
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
-
   const submit = async (data) => {
     if (post) {
       const file = data.image[0]
@@ -28,7 +25,6 @@ export default function PostForm({ post }) {
       if (file) {
         appwriteService.deleteFile(post.featuredImage);
       }
-
       const dbPost = await appwriteService.updatePost(post.$id, {
         ...data,
         featuredImage: file ? file.$id : undefined,
@@ -47,6 +43,7 @@ export default function PostForm({ post }) {
           ...data,
           userId: userData.$id,
         });
+        console.log("userData at submit:", userData);
 
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`);

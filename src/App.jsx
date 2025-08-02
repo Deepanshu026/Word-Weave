@@ -74,7 +74,7 @@ function App() {
               </div>
             </div>
 
-            <div className="mt-16 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mt-16 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
               <FeatureCard
                 icon="📝"
                 title="Write Posts"
@@ -84,11 +84,6 @@ function App() {
                 icon="🔍"
                 title="Discover Content"
                 description="Find interesting articles from our community of writers"
-              />
-              <FeatureCard
-                icon="💬"
-                title="Engage"
-                description="Comment and interact with other readers and writers"
               />
             </div>
           </div>
